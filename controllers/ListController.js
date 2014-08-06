@@ -41,6 +41,24 @@ function ListController($scope){
 		$('#expenseTab').toggleClass('active');
 	};
 
+	$scope.setEditMode = function(enabled){
+		if(enabled){
+			$scope.editMode = true;
+		}
+		else{
+			$scope.editMode = false;
+		}
+
+		if($scope.selectedIndex != -1){
+			$previousElement = $elements.eq($scope.selectedIndex);
+			$previousElement.animate({
+				height:'34px',
+			}, 200);
+		}
+
+		$scope.selectedIndex = -1;
+	}
+
 	$scope.saveItem = function(){
 		if(self.incomesTabOpen()){
 			var $nameElement = $('#incomeName');
@@ -71,10 +89,30 @@ function ListController($scope){
 	};
 
 	$scope.selectItem = function($index){
+		$scope.editMode = false;
+		
+		$elements = $('.list-item');
+		$element = $elements.eq($index);
+
+		if($scope.selectedIndex != -1){
+			$previousElement = $elements.eq($scope.selectedIndex);
+			$previousElement.animate({
+				height:'34px',
+			}, 200);
+		}
+
+		$element.animate({
+			height:'50px',
+		}, 200);
+
 		$scope.selectedIndex = $index;
 	};
 
 	$scope.deleteItem = function(){
+		if($scope.selectedIndex == -1){
+			return;
+		}
+
 		if(self.incomesTabOpen()){
 			$scope.incomes.remove($scope.selectedIndex);
 		}
@@ -82,6 +120,18 @@ function ListController($scope){
 			$scope.expenses.remove($scope.selectedIndex);
 		}
 
-		$scope.selectedIndex = -1;
+		$scope.reset();
 	};
+
+	$scope.reset = function(){
+		if($scope.selectedIndex != -1){
+			$previousElement = $elements.eq($scope.selectedIndex);
+			$previousElement.animate({
+				height:'34px',
+			}, 200);
+		}
+
+		$scope.editMode = false;		
+		$scope.selectedIndex = -1;
+	}
 }
