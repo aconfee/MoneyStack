@@ -90,8 +90,12 @@ function ListController($scope){
 
 	$scope.selectItem = function($index){
 		$scope.editMode = false;
-		
-		$elements = $('.list-item');
+		var tab = '#incomes ';
+		if(!self.incomesTabOpen()){
+			tab = '#expenses ';
+		}
+
+		$elements = $(tab + ' .list-item');
 		$element = $elements.eq($index);
 
 		if($scope.selectedIndex != -1){
