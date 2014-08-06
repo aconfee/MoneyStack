@@ -2,6 +2,12 @@
 <html>
 
 	<head>    
+		<!-- Font -->
+		<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+		<!-- Bootstrap CSS -->
+		<link rel='stylesheet' type='text/css' href='../bower_components/bootstrap/dist/css/bootstrap.min.css' />
+		<!-- My css -->
+		<link rel='stylesheet' type='text/css' href='../styles/lists.css' />
 	</head>
 
 	<body>
@@ -39,19 +45,26 @@
 				  <li id='expenseTab' ng-click='toggleList()'><a href="#">Expenses</a></li>
 				</ul>
 				<div id='incomes' ng-show='showIncomes'>
-					hello
+					<div class='listContent'>
+						<div class='editBox' ng-show='editMode'>
+							<input type="text" class="form-control" id="incomeName" placeholder="Name">
+							<input type="number" class="form-control" id="incomePrice" placeholder="$">
+						</div>
+					</div>
 				</div>
 				<div id='expenses' ng-show='showExpenses'>
-					goodbye
+					<div class='listContent'>
+					</div>
+				</div>
+				<div id='buttonContainer'>
+					<button ng-click='toggleEdit()' class='btn btn-primary list-btn-right' ng-show='!editMode'>ADD</button>
+					<button class='btn btn-primary list-btn-right' ng-show='!editMode'>DELETE</button>
+					<button class='btn btn-primary list-btn-right' ng-show='editMode'>SAVE</button>
+					<button ng-click='toggleEdit()' class='btn btn-primary list-btn-right' ng-show='editMode'>CANCEL</button>
 				</div>
 			</div>
 			<div id='graphContainer' class='col-xs-8' style='height:500px;'></div>
 		</div>
-
-	<!-- Font -->
-	<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-	<!-- Bootstrap CSS -->
-	<link rel='stylesheet' type='text/css' href='../bower_components/bootstrap/dist/css/bootstrap.min.css' />
 
 	<!-- jQuery -->
 	<script src="../bower_components/jquery/dist/jquery.min.js"></script>

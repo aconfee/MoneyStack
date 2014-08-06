@@ -1,0 +1,24 @@
+.btn{
+	border-radius: 0;
+}
+.list-btn-right{
+	float:right;
+	margin-left:5px;
+}
+
+.list-btn-left{
+	float:left;
+	margin-right:5px;
+}
+
+.listContent{
+	width:100%;
+	height:auto;
+	min-height: 34px;
+	background-color: #efeded;
+}
+
+.form-control{
+	border-radius: 0;
+}
+

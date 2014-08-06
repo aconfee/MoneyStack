@@ -1,6 +1,7 @@
 function ListController($scope){
 	$scope.showIncomes = true;
 	$scope.showExpenses = false;
+	$scope.editMode = false;
 
 	$scope.toggleList = function(){
 		$scope.showIncomes = !$scope.showIncomes;
@@ -8,5 +9,9 @@ function ListController($scope){
 
 		$('#incomeTab').toggleClass('active');
 		$('#expenseTab').toggleClass('active');
+	};
+
+	$scope.toggleEdit = function(){
+		$scope.editMode = !$scope.editMode;
 	};
 }

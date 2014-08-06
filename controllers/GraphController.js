@@ -29,10 +29,10 @@ $(function () {
             enabled: false
         },
         tooltip: {
-            pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>',
+            pointFormat: '$<b>{point.y:.1f}</b>',
         },
         series: [{
-            name: 'Population',
+            name: 'Money',
             data: [
                 ['Income', 4247.62],
                 ['Expense', 3888.10],
