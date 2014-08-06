@@ -1,0 +1,1 @@
+Easily visualize your net income.
