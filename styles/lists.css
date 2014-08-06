@@ -1,5 +1,6 @@
 .btn{
 	border-radius: 0;
+	margin-top: 10px;
 }
 .list-btn-right{
 	float:right;
@@ -22,3 +23,28 @@
 	border-radius: 0;
 }
 
+.list-item{
+	font-weight: bold;
+	padding:5px 15px;
+}
+
+.list-item:hover{
+	background-color: #d6d4d4;
+}
+
+.list-item-selected{
+	background-color: #7CB5EC;
+	color:white;
+}
+
+.list-item-selected:hover{
+	background-color: #7CB5EC;
+}
+
+.list-item-name{
+
+}
+
+.list-item-amount{
+	float:right;
+}

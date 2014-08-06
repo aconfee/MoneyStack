@@ -41,26 +41,38 @@
 		<div class='row'>
 			<div class='col-xs-2 col-xs-offset-1' ng-controller='ListController'>
 				<ul class="nav nav-tabs" role="tablist">
-				  <li id='incomeTab' class="active" ng-click='toggleList()'><a href="#">Incomes</a></li>
-				  <li id='expenseTab' ng-click='toggleList()'><a href="#">Expenses</a></li>
+				  <li id='incomeTab' class="active" ng-click='toggleList();editMode = false;'><a href="#">Incomes</a></li>
+				  <li id='expenseTab' ng-click='toggleList();editMode = false;'><a href="#">Expenses</a></li>
 				</ul>
 				<div id='incomes' ng-show='showIncomes'>
 					<div class='listContent'>
+						<div ng-repeat='item in incomes' ng-class='{"list-item-selected": selectedIndex == $index}' class='list-item' ng-click='selectItem($index)'>
+							<span class='list-item-name'>{{ item.name }}</span>
+							<span class='list-item-amount'>${{ item.amount }}</span>
+						</div>
 						<div class='editBox' ng-show='editMode'>
 							<input type="text" class="form-control" id="incomeName" placeholder="Name">
-							<input type="number" class="form-control" id="incomePrice" placeholder="$">
+							<input type="text" class="form-control" id="incomeAmount" placeholder="$">
 						</div>
 					</div>
 				</div>
 				<div id='expenses' ng-show='showExpenses'>
 					<div class='listContent'>
+						<div ng-repeat='item in expenses' ng-class='{"list-item-selected": selectedIndex == $index}' class='list-item' ng-click='selectItem($index)'>
+							<span class='list-item-name'>{{ item.name }}</span>
+							<span class='list-item-amount'>${{ item.amount }}</span>
+						</div>
+						<div class='editBox' ng-show='editMode'>
+							<input type="text" class="form-control" id="expenseName" placeholder="Name">
+							<input type="text" class="form-control" id="expenseAmount" placeholder="$">
+						</div>
 					</div>
 				</div>
 				<div id='buttonContainer'>
-					<button ng-click='toggleEdit()' class='btn btn-primary list-btn-right' ng-show='!editMode'>ADD</button>
-					<button class='btn btn-primary list-btn-right' ng-show='!editMode'>DELETE</button>
-					<button class='btn btn-primary list-btn-right' ng-show='editMode'>SAVE</button>
-					<button ng-click='toggleEdit()' class='btn btn-primary list-btn-right' ng-show='editMode'>CANCEL</button>
+					<button ng-click='editMode = true' class='btn btn-primary list-btn-right' ng-show='!editMode'>ADD</button>
+					<button ng-click='deleteItem();' class='btn btn-primary list-btn-right' ng-show='!editMode'>DELETE</button>
+					<button ng-click='saveItem()' class='btn btn-primary list-btn-right' ng-show='editMode'>SAVE</button>
+					<button ng-click='editMode = false' class='btn btn-primary list-btn-right' ng-show='editMode'>CANCEL</button>
 				</div>
 			</div>
 			<div id='graphContainer' class='col-xs-8' style='height:500px;'></div>
