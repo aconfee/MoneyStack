@@ -1,0 +1,21 @@
+{
+  "name": "MoneyStack",
+  "version": "0.0.1",
+  "authors": [
+    "Adam Estela <adamestela@gmail.com>"
+  ],
+  "description": "Easily visualize your net income.",
+  "main": "views/index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.2.21",
+    "bootstrap": "~3.2.0"
+  }
+}
